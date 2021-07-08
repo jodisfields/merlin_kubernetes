@@ -78,7 +78,19 @@ git clone https://github.com/automateyournetwork/merlin_kubernetes.git
 
 ```
 
-3. First, bring up the Homepage
+3. Install Kubernetes in Docker Desktop 
+
+[Deploy on Kubernetes](https://docs.docker.com/desktop/kubernetes/)
+
+![Docker Desktop Kubernetes](images/enable_kubernetes.PNG)
+
+! IMPORTANT ! 
+
+You may need to reboot your PC after enabling Kubernetes (I did) - you will know it is up and healthy when the Kubernetes system tray appears green in Docker Desktop
+
+![Docker Desktop Kubernetes Healthy](images/healthy_kube.PNG)
+
+4. First, bring up the Homepage
 
 ``` console
 
