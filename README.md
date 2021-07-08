@@ -162,10 +162,6 @@ Now check Docker Desktop - Images to confirm all of your microservices are In Us
 
 ![Docker Images](images/images.PNG)
 
-Next check your Container / Apps and expand merlin_docker_nexus - you should see all of your images and their ports runing 
-
-![Container App](images/container_app.PNG)
-
 Now launch your browser and visit http://localhost:30000 to visit the Nexus 9000 Services Homepage
 
 ![Docker Homepage](images/docker_homepage.PNG)
