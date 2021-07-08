@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: version
+  name: version
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: version
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: version
+    spec:
+      containers:
+        - image: johncapobianco/merlin_kubernetes:version
+          name: version
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mac-address-table
+  name: mac-address-table
+spec:
+  type: NodePort
+  ports:
+    - name: "8098"
+      port: 8098
+      targetPort: 80
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30018      
+  selector:
+    io.kompose.service: mac-address-table
+status:
+  loadBalancer: {}

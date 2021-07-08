@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: port-channel-summary
+  name: port-channel-summary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: port-channel-summary
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: port-channel-summary
+    spec:
+      containers:
+        - image: johncapobianco/merlin_kubernetes:port_channel_summary
+          name: port-channel-summary
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: learned-ospf
+  name: learned-ospf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: learned-ospf
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: learned-ospf
+    spec:
+      containers:
+        - image: johncapobianco/merlin_kubernetes:learned_ospf
+          name: learned-ospf
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}
