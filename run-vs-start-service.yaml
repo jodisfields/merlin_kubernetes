@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: run-vs-start
+  name: run-vs-start
+spec:
+  type: NodePort
+  ports:
+    - name: "8107"
+      port: 8107
+      targetPort: 80
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30027      
+  selector:
+    io.kompose.service: run-vs-start
+status:
+  loadBalancer: {}

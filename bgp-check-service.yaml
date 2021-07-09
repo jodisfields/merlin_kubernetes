@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: bgp-check
+  name: bgp-check
+spec:
+  type: NodePort
+  ports:
+    - name: "8103"
+      port: 8103
+      targetPort: 80
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30023      
+  selector:
+    io.kompose.service: bgp-check
+status:
+  loadBalancer: {}
