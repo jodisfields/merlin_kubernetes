@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: half-duplex
+  name: half-duplex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: half-duplex
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: half-duplex
+    spec:
+      containers:
+        - image: johncapobianco/merlin:half_duplex
+          name: half-duplex
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}
