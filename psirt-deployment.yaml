@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: psirt
+  name: psirt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: psirt
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: psirt
+    spec:
+      containers:
+        - image: johncapobianco/merlin_kubernetes:psirt
+          name: psirt
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}
