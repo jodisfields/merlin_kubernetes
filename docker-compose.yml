@@ -167,37 +167,55 @@ services:
     ports:
       - "8102:80"
   bgp_check:
-    image: johncapobianco/merlin:bgp_check
+    image: johncapobianco/merlin_kubernetes:bgp_check
     build: 
       context: ./
       dockerfile: ./docker/BGP_Check/dockerfile
     ports:
       - "8103:80"      
   crc_errors:
-    image: johncapobianco/merlin:crc_errors
+    image: johncapobianco/merlin_kubernetes:crc_errors
     build: 
       context: ./
       dockerfile: ./docker/CRC_Errors/dockerfile
     ports:
       - "8104:80"      
   half_duplex:
-    image: johncapobianco/merlin:half_duplex
+    image: johncapobianco/merlin_kubernetes:half_duplex
     build: 
       context: ./
       dockerfile: ./docker/Half_Duplex/dockerfile
     ports:
       - "8105:80"
   ping_test:
-    image: johncapobianco/merlin:ping_test
+    image: johncapobianco/merlin_kubernetes:ping_test
     build: 
       context: ./
       dockerfile: ./docker/Ping_Test/dockerfile
     ports:
       - "8106:80"      
   run_vs_start:
-    image: johncapobianco/merlin:run_vs_start
+    image: johncapobianco/merlin_kubernetes:run_vs_start
     build: 
       context: ./
       dockerfile: ./docker/Run_vs_Start/dockerfile
     ports:
-      - "8107:80"           
+      - "8107:80"
+  # YOU NEED TO UPDATE THE api_credentials/cisco.yaml file first with your SNTC API Credentials
+  # THEN YOU NEED TO UPDAT THE IMAGE PATH TO YOUR DOCKERHUB REPO
+  # THEN REMOVE COMMENTS
+  # THEN YOU NEED TO docker-compose build / docker-compose up the images
+  #psirt:
+  #  image: {{ YOUR DOCKER HUB ACCOUNT HERE }}/{{ YOUR DOCKER HUB REPO HERE }}:psirt
+  #  build: 
+  #    context: ./
+  #    dockerfile: ./docker/PSIRT/dockerfile
+  #  ports:
+  #    - "8108:80"
+  #recommended_release:
+  #  image: {{ YOUR DOCKER HUB ACCOUNT HERE }}/{{ YOUR DOCKER HUB REPO HERE }}:recommended_release
+  #  build: 
+  #    context: ./
+  #    dockerfile: ./docker/Recommended_Release/dockerfile
+  #  ports:
+  #    - "8109:80"      
